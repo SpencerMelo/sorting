@@ -3,6 +3,7 @@ package com.ds.sorting;
 import com.ds.sorting.structure.ArrayList;
 import com.ds.sorting.utils.Sort;
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -184,6 +185,8 @@ public class SortController implements Initializable {
         ArrayList<Integer> workingData = cloneArray(data);
 
         new Thread(() -> {
+            long startTime = System.currentTimeMillis();
+
             switch (algorithm) {
                 case "Bubble Sort":
                     Sort.bubbleSort(workingData);
@@ -196,15 +199,40 @@ public class SortController implements Initializable {
                     break;
             }
 
+            long endTime = System.currentTimeMillis();
+            long duration = endTime - startTime;
+
+            updateBenchmark(csvComboBox.getValue(), algorithm, String.valueOf(duration));
+
             Platform.runLater(() -> {
                 data = workingData;
                 displayBars();
                 statusLabel.setText(
-                    "Sorting complete with '" + algorithm + "'"
+                    "Sorting complete with '" +
+                        algorithm +
+                        "' (" +
+                        duration +
+                        "ms)"
                 );
             });
         })
             .start();
+    }
+
+    private void updateBenchmark(
+        String file,
+        String algorithm,
+        String duration
+    ) {
+        try {
+            String fileName = file.substring(file.lastIndexOf("/") + 1);
+            String row = algorithm + ", " + fileName + ", " + duration + "\n";
+            try (FileWriter writer = new FileWriter("result.log", true)) {
+                writer.write(row);
+            }
+        } catch (Exception e) {
+            System.err.println("Failed to update results: " + e.getMessage());
+        }
     }
 
     private void resetData() {
