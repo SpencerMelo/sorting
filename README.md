@@ -87,12 +87,12 @@ sorting/
 
 ## Features
 
-- ✅ **Multiple CSV Datasets** - 9 different sample datasets (random, ascending, descending)
-- ✅ **Three Sorting Algorithms** - Bubble, Insertion, and Quick Sort
-- ✅ **Visual Representation** - Bars represent array values, scaled proportionally
-- ✅ **Background Sorting** - Non-blocking UI during sorting operations
-- ✅ **Reset Functionality** - Restore to original data state instantly
-- ✅ **Status Updates** - Real-time feedback on operations
+- **Multiple CSV Datasets** - 9 different sample datasets (random, ascending, descending)
+- **Three Sorting Algorithms** - Bubble, Insertion, and Quick Sort
+- **Visual Representation** - Bars represent array values, scaled proportionally
+- **Background Sorting** - Non-blocking UI during sorting operations
+- **Reset Functionality** - Restore to original data state instantly
+- **Status Updates** - Real-time feedback on operations
 
 ## CSV File Format
 
