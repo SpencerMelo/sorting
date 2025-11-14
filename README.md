@@ -115,3 +115,6 @@ Value
 - Bar heights are scaled relative to the maximum value in each dataset
 - Sorting happens in a background thread to keep the UI responsive
 - All sample datasets are located in `src/main/resources/com/ds/sorting/data/`
+
+## UI screenshot
+![ui-screenshot.png](src/main/resources/com/ds/ui-screenshot.png)
