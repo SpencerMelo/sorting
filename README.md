@@ -93,6 +93,7 @@ sorting/
 - **Background Sorting** - Non-blocking UI during sorting operations
 - **Reset Functionality** - Restore to original data state instantly
 - **Status Updates** - Real-time feedback on operations
+- **Benchmark Logging** - Automatic performance logging to `result.log`
 
 ## CSV File Format
 
@@ -115,6 +116,22 @@ Value
 - Bar heights are scaled relative to the maximum value in each dataset
 - Sorting happens in a background thread to keep the UI responsive
 - All sample datasets are located in `src/main/resources/com/ds/sorting/data/`
+
+## Benchmark Results
+
+Each sorting execution is automatically logged to `result.log` in the project root directory.
+
+**Format:**
+```
+Algorithm Name, filename.csv, duration_in_milliseconds
+```
+
+**Example entries:**
+```
+Bubble Sort, aleatorio_100.csv, 15
+Quick Sort, crescente_1000.csv, 42
+Insertion Sort, decrescente_10000.csv, 3456
+```
 
 ## UI screenshot
 ![ui-screenshot.png](src/main/resources/com/ds/ui-screenshot.png)
